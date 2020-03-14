@@ -5,11 +5,11 @@ import * as path from 'path'
 import {createCommand} from '../src/createCommand'
 
 describe('createCommand', () => {
-  it('python', () => {
+  test('python', () => {
     expect(createCommand('python')).toEqual('python --version')
   })
 
-  it('ruby', () => {
+  test('ruby', () => {
     expect(createCommand('ruby')).toEqual('ruby --version')
   })
 })
