@@ -3,15 +3,18 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
+    let myOutput = ''
+    let myError = ''
+
     const options = {
       listeners: {}
     }
     options.listeners = {
       stdout: (data: Buffer) => {
-        return data.toString()
+        myOutput += data.toString()
       },
       stderr: (data: Buffer) => {
-        return data.toString()
+        myError += data.toString()
       }
     }
     await exec.exec('python --version', [], options)
