@@ -934,6 +934,20 @@ class ExecState extends events.EventEmitter {
 
 /***/ }),
 
+/***/ 32:
+/***/ (function(__unusedmodule, exports) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+function createCommand(target) {
+    return `${target} --version`;
+}
+exports.createCommand = createCommand;
+
+
+/***/ }),
+
 /***/ 87:
 /***/ (function(module) {
 
@@ -972,23 +986,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
+const createCommand_1 = __webpack_require__(32);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const options = {
-                listeners: {},
-                cwd: './lib'
-            };
-            options.listeners = {
-                stdout: (data) => {
-                    return data.toString();
-                },
-                stderr: (data) => {
-                    return data.toString();
-                }
-            };
-            options.cwd = './lib';
-            yield exec.exec('python --version');
+            const target = core.getInput('target');
+            const execCommand = createCommand_1.createCommand(target);
+            yield exec.exec(execCommand);
         }
         catch (error) {
             core.setFailed(error.message);
