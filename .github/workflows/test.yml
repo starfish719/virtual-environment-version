@@ -19,6 +19,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: |
-      npm ci
-      npm run all
+        npm ci
+        npm run all
     - uses: ./
