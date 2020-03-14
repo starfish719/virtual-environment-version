@@ -1,5 +1,5 @@
-name: 'virtual-enviroment-version'
-description: 'show virtual enviroment version'
+name: 'VirtualEnvironmentVersion'
+description: 'show virtual environment version'
 author: 'starfish719'
 inputs:
   target:
