@@ -2,8 +2,8 @@ name: 'Your name here'
 description: 'Provide a description here'
 author: 'Your name or organization here'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
+  target:
+    description: 'input check version target'
     default: 'default value if applicable'
 runs:
   using: 'node12'

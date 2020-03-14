@@ -1,16 +1,13 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+import * as exec from '@actions/exec'
+
+import {createCommand} from './createCommand'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`)
-
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    const target: string = core.getInput('target')
+    const execCommand: string = createCommand(target)
+    await exec.exec(execCommand)
   } catch (error) {
     core.setFailed(error.message)
   }
