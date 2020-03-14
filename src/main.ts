@@ -3,18 +3,8 @@ import * as exec from '@actions/exec'
 
 async function run(): Promise<void> {
   try {
-    const options = {
-      listeners: {}
-    }
-    options.listeners = {
-      stdout: (data: Buffer) => {
-        return data.toString()
-      },
-      stderr: (data: Buffer) => {
-        return data.toString()
-      }
-    }
-    await exec.exec('python', ['--version'], options)
+    await exec.exec('python --version')
+    process.stdout.write('test output')
   } catch (error) {
     core.setFailed(error.message)
   }
