@@ -22,3 +22,5 @@ jobs:
         npm ci
         npm run all
     - uses: ./
+      with:
+        target: python
