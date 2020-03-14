@@ -1,6 +1,6 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'virtual-enviroment-version'
+description: 'show virtual enviroment version'
+author: 'starfish719'
 inputs:
   target:
     description: 'input check version target'
